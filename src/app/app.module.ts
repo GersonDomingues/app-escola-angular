@@ -14,7 +14,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
-import { DisciplinaComponent } from './views/disciplina/disciplina.component'
+import { DisciplinaComponent } from './views/disciplina/disciplina.component';
+import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component'
   
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DisciplinaComponent } from './views/disciplina/disciplina.component'
     FooterComponent,
     NavComponent,
     HomeComponent,
-    DisciplinaComponent
+    DisciplinaComponent,
+    DisciplinaCreateComponent
     
   ],
   imports: [
