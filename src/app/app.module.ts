@@ -16,7 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { DisciplinaComponent } from './views/disciplina/disciplina.component';
-import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component'
+import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
+import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component'
   
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DisciplinaCreateComponent } from './components/disciplina/disciplina-cr
     NavComponent,
     HomeComponent,
     DisciplinaComponent,
-    DisciplinaCreateComponent
+    DisciplinaCreateComponent,
+    DisciplinaReadComponent
     
   ],
   imports: [
