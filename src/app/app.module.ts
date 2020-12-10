@@ -17,8 +17,12 @@ import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { DisciplinaComponent } from './views/disciplina/disciplina.component';
 import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
-import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component'
-  
+import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
+import { HttpClientModule} from '@angular/common/http';
+
+import { FormsModule} from '@angular/forms';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { DisciplinaReadComponent } from './components/disciplina/disciplina-read
     HomeComponent,
     DisciplinaComponent,
     DisciplinaCreateComponent,
-    DisciplinaReadComponent
+    DisciplinaReadComponent,
+    
     
   ],
   imports: [
@@ -40,7 +45,11 @@ import { DisciplinaReadComponent } from './components/disciplina/disciplina-read
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
 
   ],
   providers: [],

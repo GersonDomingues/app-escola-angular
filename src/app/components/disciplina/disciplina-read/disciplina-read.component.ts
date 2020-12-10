@@ -1,4 +1,6 @@
+import { DisciplinaService } from './../disciplina.service';
 import { Component, OnInit } from '@angular/core';
+import { DisciplinaDTO } from '../disciplinaDTO.model';
 
 @Component({
   selector: 'app-disciplina-read',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./disciplina-read.component.css']
 })
 export class DisciplinaReadComponent implements OnInit {
+  
+  disciplinas: DisciplinaDTO[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private disciplinaService: DisciplinaService
+  ) {
   }
 
+  ngOnInit(): void {
+    this.disciplinaService.readFindAll()
+    .subscribe(response => {
+      this.disciplinas = response;
+      console.log(response);
+    },
+    error => {});
+    
+  }
 }
