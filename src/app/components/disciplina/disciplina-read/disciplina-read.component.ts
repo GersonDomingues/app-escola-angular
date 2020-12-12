@@ -2,7 +2,8 @@ import { Component,  OnInit, ViewChild  } from '@angular/core';
 import { DisciplinaService } from './../disciplina.service';
 import { DisciplinaDTO } from '../disciplinaDTO.model';
 import {MatTableDataSource} from '@angular/material/table';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 
 
@@ -18,13 +19,16 @@ export class DisciplinaReadComponent implements OnInit {
   dataSource = new MatTableDataSource<DisciplinaDTO>();
 
   
+  @ViewChild(MatPaginator, {static:true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static:true}) sort: MatSort;
    constructor(private disciplinaService: DisciplinaService) {
   }
 
   
 
   ngOnInit(): void{
-    
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     this.readFindAll();
     
   }
@@ -33,5 +37,5 @@ export class DisciplinaReadComponent implements OnInit {
     let resp = this.disciplinaService.readFindAll();
     resp.subscribe(response=>this.dataSource.data=response as DisciplinaDTO[])
   }
-    
+      
 }
