@@ -1,6 +1,11 @@
+import { Component,  OnInit, ViewChild  } from '@angular/core';
 import { DisciplinaService } from './../disciplina.service';
-import { Component, OnInit } from '@angular/core';
 import { DisciplinaDTO } from '../disciplinaDTO.model';
+import {MatTableDataSource} from '@angular/material/table';
+
+
+
+
 
 @Component({
   selector: 'app-disciplina-read',
@@ -8,21 +13,25 @@ import { DisciplinaDTO } from '../disciplinaDTO.model';
   styleUrls: ['./disciplina-read.component.css']
 })
 export class DisciplinaReadComponent implements OnInit {
-  
-  disciplinas: DisciplinaDTO[];
+  disposicao: DisciplinaDTO[];
+  displayedColumns: string[] = ['id', 'nome'];
+  dataSource = new MatTableDataSource<DisciplinaDTO>();
 
-  constructor(
-    private disciplinaService: DisciplinaService
-  ) {
+  
+   constructor(private disciplinaService: DisciplinaService) {
   }
 
-  ngOnInit(): void {
-    this.disciplinaService.readFindAll()
-    .subscribe(response => {
-      this.disciplinas = response;
-      console.log(response);
-    },
-    error => {});
+  
+
+  ngOnInit(): void{
+    
+    this.readFindAll();
     
   }
+
+  public readFindAll(){
+    let resp = this.disciplinaService.readFindAll();
+    resp.subscribe(response=>this.dataSource.data=response as DisciplinaDTO[])
+  }
+    
 }
