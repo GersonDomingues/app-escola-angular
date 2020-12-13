@@ -1,4 +1,4 @@
 export interface DisciplinaDTO {
-    id : string;
+    id?: string;
     nome: string;
 }

@@ -6,8 +6,6 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 
 
-
-
 @Component({
   selector: 'app-disciplina-read',
   templateUrl: './disciplina-read.component.html',
@@ -15,7 +13,7 @@ import {MatSort} from '@angular/material/sort';
 })
 export class DisciplinaReadComponent implements OnInit {
   disposicao: DisciplinaDTO[];
-  displayedColumns: string[] = ['id', 'nome'];
+  displayedColumns: string[] = ['id', 'nome', 'action'];
   dataSource = new MatTableDataSource<DisciplinaDTO>();
 
   
