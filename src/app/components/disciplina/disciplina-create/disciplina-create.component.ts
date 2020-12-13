@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { DisciplinaService } from '../disciplina.service';
+import { DisciplinaDTO } from '../disciplinaDTO.model';
 
 @Component({
   selector: 'app-disciplina-create',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisciplinaCreateComponent implements OnInit {
 
-  constructor() { }
+  obj: DisciplinaDTO = {
+    nome: ""
+  }
+  constructor(private disciplinaService: DisciplinaService,
+              private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  createDisciplina(): void {
+    this.disciplinaService.create(this.obj).subscribe(() => {
+      this.disciplinaService.showMessage('Disciplina Criada com Sucesso...')
+      this.router.navigate(['/disciplinas'])
+      
+    }
+    )
+  }
+
+  cancel(): void {
+    this.router.navigate(['/disciplinas'])
   }
 
 }
