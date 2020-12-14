@@ -5,3 +5,10 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  i.edit{
+    color: #3f51b5
+  }
+  i.delete{
+    color: #d5150b
+  }
