@@ -23,7 +23,17 @@ export class DisciplinaService {
     return this.http.get<DisciplinaDTO[]>(`${API_CONFIG.baseUrl}/disciplinas`);
   }
 
+  readById(id: string) : Observable<DisciplinaDTO> {
+    const url = `${API_CONFIG.baseUrl}/disciplinas/${id}`
+    return this.http.get<DisciplinaDTO>(url)
+  }
+
   create(obj: DisciplinaDTO): Observable<DisciplinaDTO> {
     return this.http.post<DisciplinaDTO>(`${API_CONFIG.baseUrl}/disciplinas`, obj);
+  }
+
+  update(obj: DisciplinaDTO) : Observable<DisciplinaDTO> {
+    const url = `${API_CONFIG.baseUrl}/disciplinas/${obj.id}`
+    return this.http.put<DisciplinaDTO>(url, obj)
   }
 }
